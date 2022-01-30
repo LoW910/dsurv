@@ -24,6 +24,12 @@ namespace DojoSurvey.Controllers
             return View();
         }
 
+        [HttpPost("surveySubmit")]
+        public IActionResult Results(Survey newSurvey){
+
+            return View("Results",newSurvey);
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
