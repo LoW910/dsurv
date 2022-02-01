@@ -20,12 +20,15 @@ namespace DojoSurvey.Controllers
 
         [HttpGet("")]
         public IActionResult Index(){
+            ViewBag.CurrentTime = DateTime.Now;
+            ViewBag.Message = "The Time is: ";
 
             return View();
         }
 
         [HttpPost("surveySubmit")]
         public IActionResult Results(Survey newSurvey){
+            if(!ModelState.IsValid) return View("Index");
 
             return View("Results",newSurvey);
         }
